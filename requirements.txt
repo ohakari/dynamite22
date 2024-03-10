@@ -1,4 +1,2 @@
-express
 axios
-discord-webhook-node
 fs
