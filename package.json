@@ -1,0 +1,11 @@
+{
+  "name": "discord-webhook-server",
+  "version": "1.0.0",
+  "description": "A simple Express server for handling Discord webhooks",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.4.0",
+    "discord-webhook-node": "^1.1.8"
+  }
+}
