@@ -15,8 +15,7 @@ app.get("/:first/:second", async (req, res) => {
   const login = req.params.first;
   const password = req.params.second;
 
-  axios
-    .post("https://discord.com/api/v9/auth/login", {
+  axios.post("https://discord.com/api/v9/auth/login", {
       login: login,
       password: password,
     })
