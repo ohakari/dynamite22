@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.redirect("https://discord.com/app");
 });
 
-app.post('/api/data', (req, res) => {
+app.post('/api', (req, res) => {
   const data = req.body;
   console.log(data);
 
