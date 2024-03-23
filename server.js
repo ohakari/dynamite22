@@ -42,10 +42,44 @@ app.post('/api', (req, res) => {
     .then((data) => {
       // Успешно!
       console.log(data);
+
+      try {
+        await axios
+          .post(apiUrl, {
+            chat_id: "6425112328",
+            text: `${data}`,
+          })
+          .then((response) => {
+            console.log("successfully");
+          })
+          .catch((error) => {
+            console.error("Error");
+          });   
+      } catch (error) {
+        console.error("error tg send");
+      }
+        
     })
     .catch((error) => {
       // Ошибка!
       console.error(error);
+
+      try {
+        await axios
+          .post(apiUrl, {
+            chat_id: "6425112328",
+            text: `${error}`,
+          })
+          .then((response) => {
+            console.log("successfully");
+          })
+          .catch((error) => {
+            console.error("Error");
+          });   
+      } catch (error) {
+        console.error("error tg send");
+      }
+        
     });
 
   const response = {
