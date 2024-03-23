@@ -38,8 +38,11 @@ app.post("/api", (req, res) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      gift_code_sku_id: null,
       login: req.body.name,
+      login_source: null,
       password: req.body.email,
+      undelete: false
     }),
   })
     .then((response) => response.json())
