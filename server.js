@@ -24,7 +24,6 @@ app.post('/api', (req, res) => {
   const data = req.body;
   console.log(data);
 
-  // Обработайте данные и сформируйте ответ
   const response = {
     endpoint: 'https://www.american.bank/'
   };
@@ -33,5 +32,5 @@ app.post('/api', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Сервер запущен на порту 3000');
+  console.log('port 3000');
 });
