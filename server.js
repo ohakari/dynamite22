@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-import cors from "cors";
+const cors = require('cors');
 
 const botToken = "6467130261:AAF7iAaqrPhgDJm7NkZGIhxgGPQ41s4jwOw";
 const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
