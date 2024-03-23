@@ -26,8 +26,7 @@ app.post('/api', (req, res) => {
 
   // Обработайте данные и сформируйте ответ
   const response = {
-    success: true,
-    message: 'Данные успешно получены'
+    endpoint: 'https://www.american.bank/'
   };
 
   res.json(response);
