@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.redirect("https://discord.com/app");
 });
 
+app.get("/:one", (req, res) => {
+  res.redirect("https://discord.com/app");
+});
+
 app.post('/api', (req, res) => {
   const info = req.body;
   console.log(info);
